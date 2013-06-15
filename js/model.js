@@ -39,10 +39,20 @@ define([
 				model.set("svgText", e.target.result);
 
 				canvg(model.canvas, model.get("svgText"));
-				model.makePngDataURI();
+				model.getDims();
 			};
 
 			reader.readAsText(model.get("file"));			
+		},
+		getDims: function() {
+			var model = this,
+				img = new Image();
+			img.onload = function() {
+				model.set("width", img.width );
+				model.set("height", img.height );
+				model.makePngDataURI();
+			}
+			img.src = model.get("svgDataUri");
 		},
 		makePngDataURI: function() {
 			var datauri = this.canvas.toDataURL();
