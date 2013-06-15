@@ -1,0 +1,12 @@
+{
+  "name": "Grunticon-UI",
+  "version": "0.1.0",
+  "description": "UI for Grunticon",
+  "author": "Eric Ponto",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-connect": "~0.3.0"
+  }
+}

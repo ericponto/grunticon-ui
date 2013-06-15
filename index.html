@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Grunticon UI</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />	
+	<link href='http://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.css">
+		
+	<script src="js/libs/modernizr.custom.js"></script>
+	<script type="text/javascript" src="http://canvg.googlecode.com/svn/trunk/rgbcolor.js"></script> 
+	<script type="text/javascript" src="http://canvg.googlecode.com/svn/trunk/StackBlur.js"></script>
+	<script type="text/javascript" src="http://canvg.googlecode.com/svn/trunk/canvg.js"></script> 
+
+	<script src="js/libs/require.js" data-main="js/grunticon-ui"></script>
+
+</head>
+<body>
+	<div class="container" role="main">
+		<h1 class="page-header">Grunticon UI</h1>
+		
+		<div class="row" id="supported">
+			<div class="span12">
+				<div class="alert alert-error">Your browser does not support all the functionality needed to run the full version of this application. It is suggested that you use the latest version of Chrome.</div>
+			</div>
+		</div>
+		
+		<div class="row" id="upload">
+				<div class="container">
+					<div class="row">
+						<div class="span12">
+							<h3>Drag &amp; drop SVGs</h3>
+						</div>
+					</div>
+				</div>
+		</div>
+	
+		<div class="row">
+			<div class="span12">
+				<div id="file-list">
+					<h3>Files Uploaded</h3>
+					<ul>
+						<script type="text/template" id="file-list-template">
+							<li <% !valid && print("class='invalid'") %> >
+								<i class='icon icon-file-alt'></i> 
+								<strong><%= file.name %></strong> (<%= file.type %>) <%= file.size %> bytes
+								<a href='#close' class='close' title='Remove file' data-file='<%= id %>'>
+									<i class='icon icon-remove'></i>
+								</a>
+							</li>
+						</script>
+					</ul>
+				</div>
+				<div id="results">
+					<h3>Grunticon Results</h3>
+					
+					<a href="#" class="btn btn-primary" id="download"><i class="icon icon-download icon-white"></i> Download it!</a>
+					
+					<h3>File Previews</h3>
+					
+					<h4>SVG.css</h4>
+					<pre id="svg-results"></pre>
+<script type="text/template" id="svg-css-template">
+.icon-<%= name %> {
+	background-image: url('<%= svgDataUri %>');
+	background-repeat: no-repeat;
+}
+</script>
+					
+					<h4>PNG.css</h4>
+					<pre id="png-results"></pre>
+<script type="text/template" id="png-css-template">
+.icon-<%= name %> {
+	background-image: url('<%= pngDataUri %>');
+	background-repeat: no-repeat;
+}
+</script>
+
+					<h4>Fallback.css</h4>
+					<pre id="fallback-results"></pre>
+<script type="text/template" id="fallback-css-template">
+.icon-<%= name %> {
+	background-image: url('<%= name %>.png');
+	background-repeat: no-repeat;
+}
+</script>
+					<h4>SVGs</h4>
+					<div id="svg-icons-results"></div>
+					<script type="text/template" id="svg-icons-template">
+						<div>
+							<h5><%= name %></h5>
+							<img src="<%= svgDataUri %>" alt="" />
+						</div>
+					</script>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>
